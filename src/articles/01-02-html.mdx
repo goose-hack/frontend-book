@@ -1,0 +1,99 @@
+export const metadata = {
+  title: "html",
+};
+
+# Chapter1 webサイトをつくってみる
+
+参考サイト：[mdn wed docs](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web)
+
+## 02 HTMLでwebページ作ってブラウザで表示する
+
+### 目標
+
+- HTMLを用いてwebページを作成できる
+- 書いたページをブラウザで表示できる
+
+### 使用技術
+
+- エディタ: VSCode
+- html
+
+### [HTMLの基本](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/HTML_basics)
+
+### HTMLとは
+
+webページの構造をつくるコード
+
+headとbody
+
+### 準備
+
+1. 任意のフォルダ内に新たなフォルダを作成し、`web`と名前を入力する
+1. VSCodeを立ち上げ、VSCodeで`web`フォルダを開く
+1. `New Files`から新たなファイルを作成し、`index.html`と名前を入力する
+
+### [HTMLで使用できるタグ](https://developer.mozilla.org/ja/docs/Web/HTML/Reference)
+
+#### 段落
+
+```
+<p>Naniyara sugoi kodawarino mame</p>
+```
+
+- 文章の段落をつくりたいときに使う
+
+#### グループ化
+
+```
+<div class="top-page">
+  <h1>Hoge Coffee</h1>
+</div>
+```
+
+- 複数のタグにまとめてスタイルをつけるときにグループ化するために使う
+
+#### 画像
+
+```
+<img
+  class="content"
+  src="./coffee-beans.png"
+  alt="Specialty Coffee Beans"
+/>
+```
+
+- 画像を表示させたいときに使う
+- srcには表示させたい画像の場所
+- altには画像の簡単な説明
+
+#### リンク
+
+```
+<a href="https://github.com/kanaru-ssk/frontend-book">Frontend Book</a>
+```
+
+- リンクを表示したいときに使う
+- hrefにはリンクのURL
+- リンクにしたい文字を`<a></a>`要素で囲む
+
+#### 見出し
+
+```
+<h1>Hoge Coffee</h1>
+<h2>Specialty Coffee Beans</h2>
+```
+
+- 見出しをして表示したい部分に使う
+- `<h1>-<h6>`まであり、レベルで使い分ける
+
+### その他のタグ紹介
+
+- [`<span>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/span): 文中の一部分のみに別なスタイルをあてたいときに使う
+- [`<ul>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/ul): 箇条書きのリストをつくるときに使う
+- [`<ol>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/ol): 順序付きのリストをつくるときに使う
+- [`<li>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/li): `<ul>`、`<ol>`の中の要素で使う
+- [`<button>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/button): ボタンを作成するときに使う
+- [`<input>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/input): ユーザーからテキストなどを入力してもらうテキストボックスをつくるときに使う
+- [`<textarea>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/textarea): 複数行入力用のテキストボックスをつくるときに使う
+- [`<video>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/video): 映像を埋め込むときに使う
+- [`<audio>`](https://developer.mozilla.org/ja/docs/Web/HTML/Element/audio): 音声を埋め込むときに使う
