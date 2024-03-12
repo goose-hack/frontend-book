@@ -15,8 +15,6 @@ Chapter 1 - 2
 - HTMLを用いてwebページを作成できる
 - 書いたページをブラウザで表示できる
 
-## HTMLの基本
-
 ## HTMLとは
 
 webページの構造をつくるマークアップ言語です。
@@ -260,6 +258,57 @@ bodyタグ内のfooterタグに内容を追加します。
 - `&copy`: コピーライトを表示する。
 
 {/* TODO: それぞれの段階ごとのブラウザ上のスクショ */}
+
+
+### 今回のコード
+今回の全体のコードは以下になります。
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hoge Coffee</title>
+  </head>
+
+  <body>
+    <div class="top-page">
+      <h1>Hoge Coffee</h1>
+    </div>
+    <main>
+      <p class="about">
+        This page is the sample of
+        <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
+      </p>
+      <div>
+        <div class="contents-box">
+          <img
+            class="content"
+            src="./coffee-beans.png"
+            alt="Specialty Coffee Beans"
+          />
+          <div class="content">
+            <h2>Specialty Coffee Beans</h2>
+            <p>Naniyara sugoi kodawarino mame</p>
+          </div>
+        </div>
+        <div class="contents-box">
+          <div class="content">
+            <h2>Great Cafe Interior</h2>
+            <p>Dokoka no kuni no youna naisou</p>
+          </div>
+          <img
+            class="content"
+            src="./cafe-interior.png"
+            alt="Great Cafe Interior"
+          />
+        </div>
+      </div>
+    </main>
+    <footer>&copy; 2024 Frontend Book</footer>
+  </body>
+</html>
+```
 
 
 ### その他のタグ紹介

@@ -1,3 +1,5 @@
+import { Image } from "@/components/image"
+
 export const metadata = {
   title: "CSS",
 };
@@ -11,55 +13,222 @@ Chapter 1 - 3
 - CSSを用いてwebページにスタイルをつけることができる
 - 作成したwebページをブラウザで表示できる
 
-
-## CSSの基本
-
 ## CSSとは
+{/* TODO: CSSの説明 */}
 
-ここがセレクタでプロパティで値
+## CSSを書くファイルの作成
 
-## 準備
-
-1. VSCodeでwebフォルダを開く
+1. VSCodeで`web`フォルダを開く
 1. `New Files`から新たなファイルを作成し、`style.css`と名前を入力する
 
-## セレクタの種類
+## CSSを表示させる
+CSSをwebページで表示するにはHTMLでCSSファイルを読み込む必要があります。
 
-## CSSで使用できるプロパティ
-
-### 背景色
-
-    ```
-    body {backgroud-color: blue}
-    ```
-
-bodyに背景色を当ててみましょう
-
-### フォントの色
-
-    ```
-    h1 {color: green}
-    ```
-
-h1に色をつけてみましょう
-
-### 余白 padding
-
+headタグの中にlinkタグを追加し、作成したCSSファイルのリンクを追加します。
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Hoge Coffee</title>
+  </head>
 ```
-. {padding: 16px}
+
+## CSSを書いてみる
+{/* CSSの書き方的な？ */}
+
+### 見出しの色を変更する
+1. 先ほど作成した`style.css`を開きます。
+1. 見出しであるh1のテキストの色を赤に変更し、保存します。
+    ```css
+    h1 { color: red; }
+    ```
+    <Image src="/img/01-03-css-01.png" alt="screenshot" width={512} height={384}/>
+1. ブラウザで`index.html`を表示させます。
+1. 以下のように表示されれば成功です。
+    <Image src="/img/01-03-css-02.png" alt="screenshot" width={512} height={384}/>
+
+正しく表示されたのを確認したら、追加したテキストは削除しておきましょう。
+
+
+### CSSでwebページにスタイルを追加する
+{/* プロパティの説明どうしよう */}
+{/* 今はブラウザのデフォルトが...っていう説明いる？ */}
+
+#### ページ全体のスタイルを設定
+
+bodyタグにスタイルを追加します。
+```css
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  color: #cfc9c9;
+  background-color: #272d31;
+  text-align: center;
+}
 ```
+- `<margin>`: 余白を設定する。
+- `<font-family>`: テキストのフォントを設定する。左から順に採用される。
+- `<color>`: テキストの色を設定する。色名やrgbや16進数で指定する。
+- `<background-color>`: 背景の色を設定する。色名やrgbや16進数で指定する。
+- `<text-align>`: テキストを左や中央、右などに揃える。
+
+#### 見出しのフォントサイズを設定
+
+見出しであるh1、h2タグのテキストのフォントサイズを設定します。
+```css
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 20px;
+}
+```
+- `<font-size>`: フォントサイズを設定する。
+
+#### メインコンテンツ全体のスタイルを設定
+
+mainタグにスタイルを追加します。
+```css
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+```
+- `<max-width>`: 横幅の最大値を設定する。
+
+#### リンクの色を変更する
+
+aタグのテキストの色を変更します。
+```css
+a {
+  color: #85a3b7;
+}
+```
+
+#### トップページを作成する
+```css
+.top-page {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(./top-page.png);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+- `<width>`: 横幅を指定する。
+- `<height>`: 高さを指定する。
+- `<background-image>`: 背景の画像を指定する。
+- `<background-size>`: 背景の大きさを指定する。
+- `<background-position>`: 背景の位置を指定する。
+- `<display>`: 
+- `<justify-content>`: 
+- `<align-items>`: 
+
+#### コンテンツにスタイルを追加する
+```css
+.about {
+  margin: 80px 0;
+}
+
+.contents-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 50%;
+}
+```
+
+
+
+#### フッターにスタイルを追加する
+```css
+footer {
+  background-color: #162025;
+  padding: 48px 0;
+  font-size: 12px;
+}
+```
+- `<padding>`: 余白を設定する。
+
+### 今回のコード
+
+今回の全体のコードは以下になります。
+```css
+body {
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  color: #cfc9c9;
+  background-color: #272d31;
+  text-align: center;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+main {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+a {
+  color: #85a3b7;
+}
+
+.top-page {
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url(./top-page.png);
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about {
+  margin: 80px 0;
+}
+
+.contents-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  width: 50%;
+}
+
+footer {
+  background-color: #162025;
+  padding: 48px 0;
+  font-size: 12px;
+}
+```
+
 
 ↓紹介
-
-width
-height
 border
-margin
-display
 position
-text-aline
-font-size
-font-family
 -:hover
 -:active
 -:disable
@@ -69,5 +238,5 @@ font-family
 
 ## ここまでに学んだ技術
 
-- html
-- css
+- HTML
+- CSS
