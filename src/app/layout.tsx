@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { SyncTabProvider } from "@/components/tab";
 import Link from "next/link";
 import "./globals.css";
 
@@ -22,7 +23,7 @@ export default async function RootLayout({
             Frontend Book
           </Link>
         </header>
-        {children}
+        <SyncTabProvider>{children}</SyncTabProvider>
       </body>
     </html>
   );

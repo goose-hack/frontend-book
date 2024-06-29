@@ -12,319 +12,172 @@ Chapter 1 - 2
 
 ## 目標
 
-- HTMLを用いてwebページを作成できる
-- 書いたページをブラウザで表示できる
+画像のようなwebページを作成し、基本的なHTMLの書き方を習得しましょう。
+
+<Image src="/img/01-02-html.png" alt="html logo" width={512} height={350} />
 
 ## HTMLとは
 
-webページの構造をつくるマークアップ言語です。
-{/* TODO: HTMLの説明 */}
+HTML （HyperText Markup Language、ハイパーテキスト・マークアップ・ランゲージ）は、ウェブサイトのコンテンツの構造を作るために使うコードです。
 
-## 準備
+```html
+<body>
+  <h1>HTMLのイメージ</h1>
+  <p>このようなコードを書く</p>
+</body>
+```
+
+## HTMLファイルを作ろう
+
 <SyncTabMdx>
   <div data-label="windows">
-    1. エクスプローラーを開き、ドキュメントフォルダを開きます。
-        <Image src="/img/01-02-windows-01.png" alt="screenshot" width={512} height={384} />
-    1. 新しいフォルダを作成します。
-        <Image src="/img/01-02-windows-02.png" alt="screenshot" width={512} height={384} />
-    1. `web`に名前を変更します。
-        <Image src="/img/01-02-windows-03.png" alt="screenshot" width={512} height={384} />
-    1. VSCodeを立ち上げ、左上のファイルアイコンをクリックします。
-        {/* TODO: VSCodeの立ち上げ方法いる？？ */}
-        <Image src="/img/01-02-vscode-01.png" alt="screenshot" width={512} height={384} />
-    1. `Open Folder`をクリックします。
-        <Image src="/img/01-02-vscode-02.png" alt="screenshot" width={512} height={384} />
-    1. 先ほど作成した`web`フォルダを開きます。
-        <Image src="/img/01-02-vscode-03.png" alt="screenshot" width={512} height={384} />
-        {/* TODO: VSCodeで表示されるフォルダ名がWEBになってればOKマーク */}
-    1. フォルダ名の横の`New File`をクリックし、新たなファイルを作成します。
-        <Image src="/img/01-02-index.html-01.png" alt="screenshot" width={512} height={384} />
-    1. `index.html`と名前を入力し、enterを押します。
-        <Image src="/img/01-02-index.html-02.png" alt="screenshot" width={512} height={384} />
-    これでhtmlファイルの作成が完了しました！
+    エクスプローラーでドキュメントフォルダを開き、`web`フォルダを作成します。
+    <Image src="/img/01-02-windows-03.png" alt="screenshot" width={512} height={384} />
+    VSCodeを立ち上げ、左上のファイルアイコンをクリックします。
+    <Image src="/img/01-02-vscode-01.png" alt="screenshot" width={512} height={384} />
+    `Open Folder`をクリックします。
+    <Image src="/img/01-02-vscode-02.png" alt="screenshot" width={512} height={384} />
+    先ほど作成した`web`フォルダを開きます。
+    <Image src="/img/01-02-vscode-03.png" alt="screenshot" width={512} height={384} />
+    フォルダ名の横の`New File`をクリックし、新たなファイルを作成します。
+    <Image src="/img/01-02-index.html-01.png" alt="screenshot" width={512} height={384} />
+    `index.html`と名前を入力し、enterを押します。
+    <Image src="/img/01-02-index.html-02.png" alt="screenshot" width={512} height={384} />
   </div>
+
   <div data-label="mac">
-        {/* TODO: mac用に書き換え */}
-    1. Finderを開き、ドキュメントフォルダを開きます。
-        <Image src="/img/01-02-mac-01.png" alt="screenshot" width={512} height={384} />
-    1. 新しいフォルダを作成します。
-        <Image src="/img/01-02-mac-02.png" alt="screenshot" width={512} height={384} />
-    1. `web`に名前を変更します。
-        <Image src="/img/01-02-mac-03.png" alt="screenshot" width={512} height={384} />
-        <Image src="/img/01-02-mac-04.png" alt="screenshot" width={512} height={384} />
-    1. VSCodeを立ち上げ、左上のファイルアイコンをクリックします。
-        <Image src="/img/01-02-vscode-01.png" alt="screenshot" width={512} height={384} />
-    1. `Open Folder`をクリックします。
-        <Image src="/img/01-02-vscode-02-m.png" alt="screenshot" width={512} height={384} />
-    1. 先ほど作成した`web`フォルダを開きます。
-        <Image src="/img/01-02-vscode-03.png" alt="screenshot" width={512} height={384} />
-    1. フォルダ名の横の`New File`をクリックし、新たなファイルを作成します。
-        <Image src="/img/01-02-index.html-01.png" alt="screenshot" width={512} height={384} />
-    1. `index.html`と名前を入力し、enterを押します。
-        <Image src="/img/01-02-index.html-02.png" alt="screenshot" width={512} height={384} />
-    これでhtmlファイルの作成が完了しました！
+    Finderで書類フォルダを開き、`web`フォルダを作成します。
+    <Image src="/img/01-02-mac-01.png" alt="screenshot" width={512} height={354} />
+    
+    VSCodeを立ち上げ、Fileメニュー → Open Folderを選択します。
+    <Image src="/img/01-02-mac-02.png" alt="screenshot" width={512} height={322} />
+    
+    先ほど作成したwebフォルダを選択し、開くをクリックします。
+    <Image src="/img/01-02-mac-03.png" alt="screenshot" width={512} height={387} />
+    
+    VSCodeのファイル作成ボタンをクリックし、`index.html`ファイルを作成します。
+    <Image src="/img/01-02-mac-04.png" alt="screenshot" width={512} height={384} />
   </div>
 </SyncTabMdx>
 
 
-## HTMLを書いてみる
+## HTMLを書いてみよう
 
-### ブラウザ上にHello World!を表示する
-1. 先ほど作成した`index.html`に`Hello World!`と入力します。
+
+
+<SyncTabMdx>
+  <div data-label="windows">
+    先ほど作成した`index.html`に、以下のコードをコピペしてください。
+
     ```html
-    Hello World!
+    <!DOCTYPE html>
+    <html lang="ja">
+      <!-- head : webページに表示しないコンテンツ -->
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Hello World</title>
+      </head>
+
+      <!-- body : webページに表示するコンテンツ -->
+      <body>
+        <h1>Hello World</h1>
+      </body>
+    </html>
     ```
-    <Image src="/img/01-02-html-01.png" alt="screenshot" width={512} height={384} />
-1. `Ctrl + S`を押して変更を保存します。
-1. ブラウザを開きます。
-1. `index.html`のファイルをブラウザ上にドラック＆ドロップします。
-1. 以下のように表示されれば成功です。(画像はedgeで開いたもの)
-    <Image src="/img/01-02-html-02.png" alt="screenshot" width={512} height={384} />
 
-正しく表示されたのを確認したら、Hello World!の文字は削除しておきましょう。
+    `Ctrl` + `s` キーを押して変更を保存します。
 
-### HTMLでwebページを書いてみる
-今回はカフェのサンプルサイトのHTMLを書いてみます。
-<Link
-  href="https://frontend-book.kanaru.jp/sample/"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  実際のデモページはこちら
-</Link>
+    保存されていない変更があると、左の画像のようにファイル名の右に白丸が表示されます。右の画像のように白丸がなければ正しく保存されています。
 
-ここではHTMLだけを書くため、最終的に以下のような画面になったら完了です。
-<Image src="/img/01-01-liveserver-01.png" alt="screenshot" width={512} height={384} />
-
-
-サイト内で使う画像をリンクをクリックしてダウンロードしてください。
-<ul>
-  <li>
-    <a href="/sample/coffee-beans.png" download>coffee-beans.png</a>
-  </li>
-  <li>
-    <a href="/sample/cafe-interior.png" download>cafe-interior.png</a>
-  </li>
-  <li>
-    <a href="/sample/top-page.png" download>top-page.png</a>
-  </li>
-</ul>
-
-ダウンロードが完了したら、VSCodeでwebフォルダにドラック&ドロップでコピーしましょう。
-
-
-### htmlであることを示す
-htmlファイルの1行目には必ずhtmlであることを宣言する`<!doctype html>`を記述します。
-
-その下にどこからどこまでがhtmlで書かれているかわかるようにhtmlタグを追加します。
-
-htmlタグでは表示言語を`lang="--"`で示します。
-
-英語は`"en"`、日本語は`"ja"`です。
-```html
-<!doctype html>
-<html lang="en"></html>
-```
-
-### headタグを追加する
-htmlタグの中に内容を書いていきます。
-
-始めにwebサイトの基本情報を書くhaedタグを追加します。
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hoge Coffee</title>
-  </head>
-</html>
-```
-- `<head>`: ---
-- `<mata>`: ---
-  - `charset`: ---
-  - `name`: ---
-  - `content`: ---
-- `<title>`: webサイトのタイトルを書く。
-
-{/* TODO: headタグ、metaタグの説明 */}
-
-### bodyタグを追加
-headタグの下にbodyタグを追加します。
-
-bodyタグの中にコンテンツを書いていきます。
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hoge Coffee</title>
-  </head>
-  <body>
-    <main></main>
-    <footer></footer>
-  </body>
-</html>
-```
-- `<body>`: サイトに表示される情報を書く。
-- `<main>`: 中にサイトのメインコンテンツを書く。
-- `<footer>`: 中にサイトのフッター情報を書く。
-
-### サイトのトップページを追加する
-mainタグの上にh1タグでトップページの文字を追加します。
-```html
-<body>
-  <h1>Hoge Coffee</h1>
-  <main></main>
-  <footer></footer>
-</body>
-```
-- `<h1>`: 見出しとして表示したい部分に使う。
-
-### サイトの説明を追加する
-mainタグの中にpタグとaタグを追加します。
-```html
-<body>
-  <h1>Hoge Coffee</h1>
-  <main>
-    <p>
-      This page is the sample of
-      <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
-    </p>
-  </main>
-  <footer></footer>
-</body>
-```
-- `<p>`: 段落を示す。pタグと閉じタグの間に文字列を書く。
-- `<a>`: リンクを表示させる。aタグと閉じタグの間にリンクにしたい文字を書く。
-  - `href`: 遷移先のurlを書く。
-
-### コンテンツの詳細を追加する
-先ほどのpタグの下に、imgタグ、h2タグ、pタグを追加します。
-```html
-<main>
-  <p>
-    This page is the sample of
-    <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
-  </p>
-  <img
-    src="./coffee-beans.png"
-    alt="Specialty Coffee Beans"
-  />
-  <h2>Specialty Coffee Beans</h2>
-  <p>Naniyara sugoi kodawarino mame</p>
-</main>
-```
-- `<img>`: 画像を表示させる。
-  - `src`: 表示させる画像ファイルを指定する。
-  - `alt`: 画像の説明を書く。リンク切れなどで画像が表示できないときに表示される。
-- `<h2>`: 見出しとして表示したい部分に使う。h1よりもレベルが低い。
-
-### コンテンツの詳細をもう一つ追加する
-同じようなものを内容を変更してもう１つ追加します。
-```html
-<main>
-  <p>
-    This page is the sample of
-    <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
-  </p>
-  <img
-    src="./coffee-beans.png"
-    alt="Specialty Coffee Beans"
-  />
-  <h2>Specialty Coffee Beans</h2>
-  <p>Naniyara sugoi kodawarino mame</p>
-  <h2>Great Cafe Interior</h2>
-  <p>Dokoka no kuni no youna naisou</p>
-  <img
-    src="./cafe-interior.png"
-    alt="Great Cafe Interior"
-  />
-</main>
-```
-
-### フッターに内容を追加する
-bodyタグ内のfooterタグに内容を追加します。
-```html
-    <img
-      src="./cafe-interior.png"
-      alt="Great Cafe Interior"
-    />
-  </main>
-  <footer>&copy; 2024 Frontend Book</footer>
-</body>
-```
-- `&copy`: コピーライトを表示する。
-
-{/* TODO: それぞれの段階ごとのブラウザ上のスクショ */}
-
-
-### 今回のコード
-今回の全体のコードは以下になります。
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hoge Coffee</title>
-  </head>
-
-  <body>
-    <div class="top-page">
-      <h1>Hoge Coffee</h1>
+    <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-html-03.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
-    <main>
-      <p class="about">
-        This page is the sample of
-        <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
-      </p>
-      <div>
-        <div class="contents-box">
-          <img
-            class="content"
-            src="./coffee-beans.png"
-            alt="Specialty Coffee Beans"
-          />
-          <div class="content">
-            <h2>Specialty Coffee Beans</h2>
-            <p>Naniyara sugoi kodawarino mame</p>
-          </div>
-        </div>
-        <div class="contents-box">
-          <div class="content">
-            <h2>Great Cafe Interior</h2>
-            <p>Dokoka no kuni no youna naisou</p>
-          </div>
-          <img
-            class="content"
-            src="./cafe-interior.png"
-            alt="Great Cafe Interior"
-          />
-        </div>
-      </div>
-    </main>
-    <footer>&copy; 2024 Frontend Book</footer>
-  </body>
+
+    エクスプローラーで`web`フォルダの中の`index.html`ファイルをダブルクリックした開きます。
+
+    以下のように、Hello Worldと表示されたら成功です。
+
+    <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-mac-05.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-mac-06.png" alt="screenshot" width={512} height={358} className="m-0" />
+    </div>
+  </div>
+
+  <div data-label="mac">
+    先ほど作成した`index.html`に、以下のコードをコピペしてください。
+
+    ```html
+    <!DOCTYPE html>
+    <html lang="ja">
+      <!-- head : webページに表示しないコンテンツ -->
+      <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Hello World</title>
+      </head>
+
+      <!-- body : webページに表示するコンテンツ -->
+      <body>
+        <h1>Hello World</h1>
+      </body>
+    </html>
+    ```
+
+    `command` + `s`キーを押して変更を保存します。
+
+    保存されていない変更があると、左の画像のようにファイル名の右に白丸が表示されます。右の画像のように白丸がなければ正しく保存されています。
+
+    <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-html-03.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={358} className="m-0" />
+    </div>
+
+    Finderで`web`フォルダの中の`index.html`ファイルをダブルクリックして開きます。
+    
+    以下のように、Hello Worldと表示されたら成功です。
+
+    <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-mac-05.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-mac-06.png" alt="screenshot" width={512} height={358} className="m-0" />
+    </div>
+  </div>
+</SyncTabMdx>
+
+このコードが何をしているのが見てみましょう。
+
+```html
+<!DOCTYPE html>
+```
+
+`<!DOCTYPE html>`は、この文書がHTML5という種類のHTMLドキュメントであることをブラウザに伝えるための宣言です。
+
+```html
+<html lang="ja">
+
 </html>
 ```
 
+これは、HTMLドキュメント全体を囲むタグです。`lang="ja"`は、このページが日本語で書かれていることを示します。
 
-### その他のタグ紹介
+```html
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Hello World</title>
+</head>
+```
 
-- `<span>`: 文中の一部分のみに別なスタイルをあてたいときに使う。
-- `<ul>`: 箇条書きのリストをつくるときに使う。
-- `<ol>`: 順序付きのリストをつくるときに使う。
-- `<li>`: `<ul>`、`<ol>`の中の要素で使う。
-- `<button>`: ボタンを作成するときに使う。
-- `<input>`: ユーザーからテキストなどを入力してもらうテキストボックスをつくるときに使う。
-- `<textarea>`: 複数行入力用のテキストボックスをつくるときに使う。
-- `<video>`: 映像を埋め込むときに使う。
-- `<audio>`: 音声を埋め込むときに使う。
+これは、ウェブページに表示されない情報を記述するためのタグです。
 
-参考サイト：[mdn wed docs](https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web)
+- `meta charset="utf-8"` : このページの文字エンコーディングがUTF-8であることを示します。これは、日本語などの多バイト文字を正しく表示するために必要です。
+- `meta name="viewport" content="width=device-width"` : 様々なデバイスでこのページを適切に表示するために、ビューポートの設定を指示します。具体的には、デバイスの幅に合わせてページの幅を調整することを意味します。
+- `<title>Hello World</title>` : このページのタイトルを定義します。これは、ブラウザのタブやブックマークなどに表示されます。
 
-## ここまでに学んだ技術
 
-- HTML
+<a href="https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/HTML_basics">
+mdn web docs HTMLの基本
+</a>
+
+<a href="/sample/cup.png" download>cup.png</a>
