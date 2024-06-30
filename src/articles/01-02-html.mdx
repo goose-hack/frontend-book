@@ -12,9 +12,9 @@ Chapter 1 - 2
 
 ## 目標
 
-画像のようなwebページを作成し、基本的なHTMLの書き方を習得しましょう。
+画像のようなwebページを作成し、テキスト、リンク、リスト、画像など、基本的なHTMLの書き方を習得しましょう。
 
-<Image src="/img/01-02-html.png" alt="html logo" width={512} height={350} />
+<Image src="/img/01-02-html-01.png" alt="html logo" width={512} height={350} />
 
 ## HTMLとは
 
@@ -31,18 +31,14 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 
 <SyncTabMdx>
   <div data-label="windows">
-    エクスプローラーでドキュメントフォルダを開き、`web`フォルダを作成します。
+    デスクトップに`web`フォルダを作成します。
+    <div className="w-56"><Image src="/img/01-02-windows-01.png" alt="screenshot" width={512} height={384} /></div>
+    VSCodeの左上のメニューから、File → Open Folderを選択します。
+    <Image src="/img/01-02-windows-02.png" alt="screenshot" width={512} height={384} />
+    先ほど作成した`web`フォルダを選択し、**フォルダーの選択**をクリックします。
     <Image src="/img/01-02-windows-03.png" alt="screenshot" width={512} height={384} />
-    VSCodeを立ち上げ、左上のファイルアイコンをクリックします。
-    <Image src="/img/01-02-vscode-01.png" alt="screenshot" width={512} height={384} />
-    `Open Folder`をクリックします。
-    <Image src="/img/01-02-vscode-02.png" alt="screenshot" width={512} height={384} />
-    先ほど作成した`web`フォルダを開きます。
-    <Image src="/img/01-02-vscode-03.png" alt="screenshot" width={512} height={384} />
-    フォルダ名の横の`New File`をクリックし、新たなファイルを作成します。
-    <Image src="/img/01-02-index.html-01.png" alt="screenshot" width={512} height={384} />
-    `index.html`と名前を入力し、enterを押します。
-    <Image src="/img/01-02-index.html-02.png" alt="screenshot" width={512} height={384} />
+    VSCodeのファイル作成ボタンをクリックし、`index.html`ファイルを作成します。
+    <Image src="/img/01-02-windows-04.png" alt="screenshot" width={512} height={384} />
   </div>
 
   <div data-label="mac">
@@ -60,10 +56,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
   </div>
 </SyncTabMdx>
 
-
 ## HTMLを書いてみよう
-
-
 
 <SyncTabMdx>
   <div data-label="windows">
@@ -91,17 +84,17 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
     保存されていない変更があると、左の画像のようにファイル名の右に白丸が表示されます。右の画像のように白丸がなければ正しく保存されています。
 
     <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-html-02.png" alt="screenshot" width={512} height={358} className="m-0" />
       <Image src="/img/01-02-html-03.png" alt="screenshot" width={512} height={358} className="m-0" />
-      <Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
 
-    エクスプローラーで`web`フォルダの中の`index.html`ファイルをダブルクリックした開きます。
+    エクスプローラーで`web`フォルダの中の`index.html`ファイルをダブルクリックして開きます。
 
     以下のように、Hello Worldと表示されたら成功です。
 
     <div className="grid grid-cols-2 gap-4">
-      <Image src="/img/01-02-mac-05.png" alt="screenshot" width={512} height={358} className="m-0" />
-      <Image src="/img/01-02-mac-06.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-windows-05.png" alt="screenshot" width={512} height={358} className="m-0" />
+      <Image src="/img/01-02-windows-06.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
   </div>
 
@@ -130,8 +123,8 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
     保存されていない変更があると、左の画像のようにファイル名の右に白丸が表示されます。右の画像のように白丸がなければ正しく保存されています。
 
     <div className="grid grid-cols-2 gap-4">
+      <Image src="/img/01-02-html-02.png" alt="screenshot" width={512} height={358} className="m-0" />
       <Image src="/img/01-02-html-03.png" alt="screenshot" width={512} height={358} className="m-0" />
-      <Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
 
     Finderで`web`フォルダの中の`index.html`ファイルをダブルクリックして開きます。
@@ -147,6 +140,16 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 
 このコードが何をしているのが見てみましょう。
 
+前提知識として、HTML要素は、コンテンツを開始タグと終了タグで囲む構造を持ちます。
+
+<Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={354} />
+
+要素には属性 (attribute) を設定し、要素に関する追加情報を含ませることができます。
+
+<Image src="/img/01-02-html-05.png" alt="screenshot" width={512} height={354} />
+
+先ほどのコードの1行目を見てください。
+
 ```html
 <!DOCTYPE html>
 ```
@@ -159,7 +162,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 </html>
 ```
 
-これは、HTMLドキュメント全体を囲むタグです。`lang="ja"`は、このページが日本語で書かれていることを示します。
+`html`タグは、HTMLドキュメント全体を囲むタグです。`lang`属性に`ja`が設定されており、このページが日本語で書かれていることを示しています。
 
 ```html
 <head>
@@ -169,15 +172,244 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 </head>
 ```
 
-これは、ウェブページに表示されない情報を記述するためのタグです。
+`head`タグの中には、ウェブページに表示しないコンテンツを記述します。
 
-- `meta charset="utf-8"` : このページの文字エンコーディングがUTF-8であることを示します。これは、日本語などの多バイト文字を正しく表示するために必要です。
-- `meta name="viewport" content="width=device-width"` : 様々なデバイスでこのページを適切に表示するために、ビューポートの設定を指示します。具体的には、デバイスの幅に合わせてページの幅を調整することを意味します。
+- `<meta charset="utf-8" />` : このページの文字エンコーディングがUTF-8であることを示します。これは、日本語などの多バイト文字を正しく表示するために必要です。
+- `<meta name="viewport" content="width=device-width" />` : スマホなどで表示した時に適切なサイズで表示するための設定です。
 - `<title>Hello World</title>` : このページのタイトルを定義します。これは、ブラウザのタブやブックマークなどに表示されます。
 
+titleタグの中身を`<title>テスト</title>`のように書き換えて、保存した後にブラウザを再読み込みするとタブの文字が**テスト**に書き換わるか確認してみてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Learn/Getting_started_with_the_web/HTML_basics">
-mdn web docs HTMLの基本
-</a>
+<div className="grid grid-cols-2 gap-4">
+  <Image src="/img/01-02-html-06.png" alt="screenshot" width={512} height={358} className="m-0" />
+  <Image src="/img/01-02-html-07.png" alt="screenshot" width={512} height={358} className="m-0" />
+</div>
 
+```html
+<body>
+  <h1>Hello World</h1>
+</body>
+```
+
+`body`タグの中には、ウェブページに表示するコンテンツを記述します。
+
+`h1`タグは、ページの中で1番大きい見出しを表示するためのタグです。
+
+hは**heading**の略で、見出しという意味です。
+
+`h1`〜`h6`まであり数字が大きいほど上位の見出しです。
+
+```html
+<!-- head : webページに表示しないコンテンツ -->
+```
+
+`<!--` と `-->`で囲まれた部分は、コメントと呼ばれ、ブラウザに表示されません。
+
+主な役割は以下の3つです。
+
+- 開発時のメモ: コードの意図や仕様変更履歴などを残すことができます。
+- デバッグ: 問題のある部分を一時的に無効化し、原因を特定するのに役立ちます。
+- コードの整理: 使用していないコードや将来使用する予定のコードを一時的に非表示にすることができます。
+
+では、他のHTMLタグも書き足してみましょう。
+
+### pタグ
+
+先ほどのコードの、`h1`タグの下に以下のように入力しましょう。
+
+```html
+<p>pタグ : 段落を表す要素。paragraph。</p>
+<p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello World</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+  </body>
+</html>
+```
+</details>
+
+pは**paragraph**の略で、テキストの段落を表示します。ブラウザ上では通常、1行分の改行が挿入されます。
+
+### aタグ
+
+以下のように入力しましょう。
+
+```html
+<p>
+  aタグ : リンク。anchor。
+  <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+    「mdn web docs - HTML 入門」
+  </a>
+</p>
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello World</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <p>
+      aタグ : リンク。anchor。
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        「mdn web docs - HTML 入門」
+      </a>
+    </p>
+  </body>
+</html>
+```
+</details>
+
+aは**anchor**の略で、別のウェブページ、ファイル、メールアドレス、同一ページ内の場所、または他の URL へのリンクを表示します。
+
+`href`属性にリンク先のURLを指定します。
+
+### imgタグ
+
+<img src="/sample/cup.png" alt="cup" className="m-0 w-56" />
 <a href="/sample/cup.png" download>cup.png</a>
+
+上のリンクをクリックし、`cup.png`をダウンロードしてください。
+
+ダウンロードフォルダの`cup.png`を、`web`フォルダに移動します。
+
+`index.html`に以下のように入力しましょう。
+
+```html
+<img src="./cup.png" alt="カップ" width="512" />
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello World</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <p>
+      aタグ : リンク。anchor。
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        「mdn web docs - HTML 入門」
+      </a>
+    </p>
+    <img src="./cup.png" alt="カップ" width="512" />
+  </body>
+</html>
+```
+</details>
+
+imgは**image**の略で、webページに画像を埋め込みます。
+
+`src`属性に、埋め込みたい画像へのパスを指定します。
+
+`alt`属性に、画像のテキストによる説明を指定します。
+`alt`属性は必須ではありませんが、画像がリンク切れした時に代わりに表示されたり、スクリーンリーダーで読み上げられたりします。
+
+`width`属性に、画像の横幅を指定します。
+`width`属性も必須ではありませんが、これを削除すると`cup.png`の元の大きさで表示されます。
+
+### ul, ol, liタグ
+
+以下のように入力しましょう。
+
+```html
+<ul>
+  <li>ulタグ : 箇条書きリスト。unordered list</li>
+  <li>olタグ : 順序付きリスト。ordered list</li>
+  <li>liタグ : リスト内の項目。list item</li>
+</ul>
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello World</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <p>
+      aタグ : リンク。anchor。
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        「mdn web docs - HTML 入門」
+      </a>
+    </p>
+    <img src="./cup.png" alt="カップ" width="512" />
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+  </body>
+</html>
+```
+</details>
+
+ulは**unordered list**の略で、箇条書きリストを表示します。
+
+liは**list item**の略で、リスト内の項目を表示します。
+
+コード内の`ul`タグを、`ol`タグに書き換えると、順序つきリストに変更されます。
+
+```html
+<ol>
+  <li>ulタグ : 箇条書きリスト。unordered list</li>
+  <li>olタグ : 順序付きリスト。ordered list</li>
+  <li>liタグ : リスト内の項目。list item</li>
+</ol>
+```
+
+以上で実務でよく使用するHTMLタグの使い方を習得しました。
+
+HTMLには他にもたくさんのタグがあるので、以下のサイトで確認してみてください。
+
+<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element">mdn web docs - HTML 要素リファレンス</a>
+
+また、より詳しくHTMLについて学びたい人は以下のページも参考にしてください。
+
+<a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">mdn web docs - HTML概論</a>
