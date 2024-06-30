@@ -42,7 +42,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
   </div>
 
   <div data-label="mac">
-    Finderで書類フォルダを開き、`web`フォルダを作成します。
+    Finderでデスクトップフォルダを開き、`web`フォルダを作成します。
     <Image src="/img/01-02-mac-01.png" alt="screenshot" width={512} height={354} />
     
     VSCodeを立ち上げ、Fileメニュー → Open Folderを選択します。
@@ -69,7 +69,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Hello World</title>
+        <title>Title</title>
       </head>
 
       <!-- body : webページに表示するコンテンツ -->
@@ -108,7 +108,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <title>Hello World</title>
+        <title>Title</title>
       </head>
 
       <!-- body : webページに表示するコンテンツ -->
@@ -168,7 +168,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
-  <title>Hello World</title>
+  <title>Title</title>
 </head>
 ```
 
@@ -176,7 +176,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 
 - `<meta charset="utf-8" />` : このページの文字エンコーディングがUTF-8であることを示します。これは、日本語などの多バイト文字を正しく表示するために必要です。
 - `<meta name="viewport" content="width=device-width" />` : スマホなどで表示した時に適切なサイズで表示するための設定です。
-- `<title>Hello World</title>` : このページのタイトルを定義します。これは、ブラウザのタブやブックマークなどに表示されます。
+- `<title>Title</title>` : このページのタイトルを定義します。これは、ブラウザのタブやブックマークなどに表示されます。
 
 titleタグの中身を`<title>テスト</title>`のように書き換えて、保存した後にブラウザを再読み込みするとタブの文字が**テスト**に書き換わるか確認してみてください。
 
@@ -231,43 +231,7 @@ hは**heading**の略で、見出しという意味です。
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Hello World</title>
-  </head>
-
-  <!-- body : webページに表示するコンテンツ -->
-  <body>
-    <h1>Hello World</h1>
-    <p>pタグ : 段落を表す要素。paragraph。</p>
-  </body>
-</html>
-```
-</details>
-
-pは**paragraph**の略で、テキストの段落を表示します。ブラウザ上では通常、1行分の改行が挿入されます。
-
-### aタグ
-
-以下のように入力しましょう。
-
-```html
-<p>
-  aタグ : リンク。anchor。
-  <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
-    「mdn web docs - HTML 入門」
-  </a>
-</p>
-```
-
-<details>
-<summary>全体のコード</summary>
-```html
-<!DOCTYPE html>
-<html lang="ja">
-  <!-- head : webページに表示しないコンテンツ -->
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hello World</title>
+    <title>Title</title>
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
@@ -275,74 +239,14 @@ pは**paragraph**の略で、テキストの段落を表示します。ブラウ
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
     <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
-    <p>
-      aタグ : リンク。anchor。
-      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
-        「mdn web docs - HTML 入門」
-      </a>
-    </p>
   </body>
 </html>
 ```
 </details>
 
-aは**anchor**の略で、別のウェブページ、ファイル、メールアドレス、同一ページ内の場所、または他の URL へのリンクを表示します。
+pは**paragraph**の略で、テキストの段落を表示します。
 
-`href`属性にリンク先のURLを指定します。
-
-### imgタグ
-
-<img src="/sample/cup.png" alt="cup" className="m-0 w-56" />
-<a href="/sample/cup.png" download>cup.png</a>
-
-上のリンクをクリックし、`cup.png`をダウンロードしてください。
-
-ダウンロードフォルダの`cup.png`を、`web`フォルダに移動します。
-
-`index.html`に以下のように入力しましょう。
-
-```html
-<img src="./cup.png" alt="カップ" width="512" />
-```
-
-<details>
-<summary>全体のコード</summary>
-```html
-<!DOCTYPE html>
-<html lang="ja">
-  <!-- head : webページに表示しないコンテンツ -->
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Hello World</title>
-  </head>
-
-  <!-- body : webページに表示するコンテンツ -->
-  <body>
-    <h1>Hello World</h1>
-    <p>pタグ : 段落を表す要素。paragraph。</p>
-    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
-    <p>
-      aタグ : リンク。anchor。
-      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
-        「mdn web docs - HTML 入門」
-      </a>
-    </p>
-    <img src="./cup.png" alt="カップ" width="512" />
-  </body>
-</html>
-```
-</details>
-
-imgは**image**の略で、webページに画像を埋め込みます。
-
-`src`属性に、埋め込みたい画像へのパスを指定します。
-
-`alt`属性に、画像のテキストによる説明を指定します。
-`alt`属性は必須ではありませんが、画像がリンク切れした時に代わりに表示されたり、スクリーンリーダーで読み上げられたりします。
-
-`width`属性に、画像の横幅を指定します。
-`width`属性も必須ではありませんが、これを削除すると`cup.png`の元の大きさで表示されます。
+ブラウザ上では通常、1行分の改行が挿入されます。上のコードも、1つ目と2つ目の`p`タグの間が改行されて表示されるはずです。
 
 ### ul, ol, liタグ
 
@@ -365,7 +269,7 @@ imgは**image**の略で、webページに画像を埋め込みます。
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Hello World</title>
+    <title>Title</title>
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
@@ -373,13 +277,6 @@ imgは**image**の略で、webページに画像を埋め込みます。
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
     <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
-    <p>
-      aタグ : リンク。anchor。
-      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
-        「mdn web docs - HTML 入門」
-      </a>
-    </p>
-    <img src="./cup.png" alt="カップ" width="512" />
     <ul>
       <li>ulタグ : 箇条書きリスト。unordered list</li>
       <li>olタグ : 順序付きリスト。ordered list</li>
@@ -404,7 +301,153 @@ liは**list item**の略で、リスト内の項目を表示します。
 </ol>
 ```
 
+### aタグ
+
+以下のように入力しましょう。
+
+```html
+<a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+  「mdn web docs - HTML 入門」
+</a>
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+      「mdn web docs - HTML 入門」
+    </a>
+  </body>
+</html>
+```
+</details>
+
+aは**anchor**の略で、別のウェブページ、ファイル、メールアドレス、同一ページ内の場所、または他の URL へのリンクを表示します。
+
+`href`属性にリンク先のURLを指定します。
+
+### imgタグ
+
+<img src="/sample/cup.png" alt="cup" className="m-0 w-56" />
+<a href="/sample/cup.png" download>cup.png</a>
+
+上のリンクをクリックし、`cup.png`をダウンロードしてください。
+
+ダウンロードフォルダの`cup.png`を、`web`フォルダに移動します。
+
+`index.html`に以下のように入力しましょう。
+
+```html
+<img src="./cup.png" alt="カップ" width="480" />
+```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+      「mdn web docs - HTML 入門」
+    </a>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+</details>
+
+imgは**image**の略で、webページに画像を埋め込みます。
+
+`src`属性に、埋め込みたい画像へのパスを指定します。
+
+`alt`属性に、画像のテキストによる説明を指定します。
+`alt`属性は必須ではありませんが、画像がリンク切れした時に代わりに表示されたり、スクリーンリーダーで読み上げられたりします。
+
+`width`属性に、画像の横幅を指定します。
+`width`属性も必須ではありませんが、これを削除すると`cup.png`の元の大きさで表示されます。
+
+### divタグ
+
+今、ブラウザの表示が以下のように、画像の左下にリンクが来てしまっているかと思います。
+
+もし縦に並んでいたら、ウィンドウサイズを広げると横に並びます。
+
+<Image src="/img/01-02-html-08.png" alt="screenshot" width={512} height={358} />
+
+HTML要素には、**ブロックレ**ベルコンテンツと、**インライン**レベルコンテンツが存在します。
+
+ブロックレベルコンテンツは、独立したブロックとして表示され、前後に改行が入ります。
+
+インラインレベルコンテンツは、文章中などに挿入され、前後に改行が入りません。
+
+これまで出てきた、
+
+- `h1`
+- `p`
+- `ul`
+- `ol`
+- `li`
+
+はデフォルトでブロックレベルコンテンツとしてレイアウトされますが、
+
+- `a`
+- `img`
+
+はインラインレベルコンテンツとしてレイアウトされるため、横並びに表示されています。
+
+デフォルトでブロックレベルコンテンツである`div`タグで`a`タグを囲むことで、リンクの前後で改行されます。
+
+```html
+<div>
+  <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+    「mdn web docs - HTML 入門」
+  </a>
+</div>
+<img src="./cup.png" alt="カップ" width="480" />
+```
+
+<Image src="/img/01-02-html-09.png" alt="screenshot" width={512} height={358} />
+
+divは**division**の略で、単純に要素をグループ化するタグです。
+
 以上で実務でよく使用するHTMLタグの使い方を習得しました。
+
+## 参考サイト
 
 HTMLには他にもたくさんのタグがあるので、以下のサイトで確認してみてください。
 
@@ -412,4 +455,4 @@ HTMLには他にもたくさんのタグがあるので、以下のサイトで�
 
 また、より詳しくHTMLについて学びたい人は以下のページも参考にしてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">mdn web docs - HTML概論</a>
+<a href="https://developer.mozilla.org/ja/docs/Learn/HTML">mdn web docs - HTML の学習: ガイドとチュートリアル</a>
