@@ -14,7 +14,7 @@ export default function HomePage() {
               webフロントエンドの案件を獲得するのに
             </span>
             <span className="inline-block">必要な技術を学習するための</span>
-            <span className="inline-block">無料学習サイトです</span>
+            <span className="inline-block">学習ロードマップです</span>
           </p>
         </div>
         <Link
