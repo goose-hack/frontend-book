@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Image } from "@/components/image"
-import { SyncTabMdx } from "@/components/tab/sync-tab-mdx"
+import Link from "next/link";
+import { Image } from "@/components/image";
+import { SyncTabMdx } from "@/components/tab/sync-tab-mdx";
 
 export const metadata = {
   title: "HTML",
@@ -8,7 +8,7 @@ export const metadata = {
 
 Chapter 1 - 2
 
-# HTMLでwebページ作ってブラウザで表示する
+# HTMLでwebサイトの構造を作る
 
 ## 目標
 
@@ -18,7 +18,7 @@ Chapter 1 - 2
 
 ## HTMLとは
 
-HTML （HyperText Markup Language、ハイパーテキスト・マークアップ・ランゲージ）は、ウェブサイトのコンテンツの構造を作るために使うコードです。
+HTML（HyperText Markup Language）は、webページを見出しや段落、箇条書きなどに構造化するためのマークアップ言語です。
 
 ```html
 <body>
@@ -96,6 +96,7 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
       <Image src="/img/01-02-windows-05.png" alt="screenshot" width={512} height={358} className="m-0" />
       <Image src="/img/01-02-windows-06.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
+
   </div>
 
   <div data-label="mac">
@@ -128,21 +129,38 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
     </div>
 
     Finderで`web`フォルダの中の`index.html`ファイルをダブルクリックして開きます。
-    
+
     以下のように、Hello Worldと表示されたら成功です。
 
     <div className="grid grid-cols-2 gap-4">
       <Image src="/img/01-02-mac-05.png" alt="screenshot" width={512} height={358} className="m-0" />
       <Image src="/img/01-02-mac-06.png" alt="screenshot" width={512} height={358} className="m-0" />
     </div>
+
   </div>
 </SyncTabMdx>
 
-このコードが何をしているのが見てみましょう。
+ブラウザとVSCodeを下のように配置して、
+
+1. HTMLコードを編集
+2. 変更を保存
+3. ブラウザ再読み込み
+
+の順で実行してみると、webページがHTMLの内容を反映しているのが確認できます。
+
+<Image
+  src="/img/01-02-html-00.gif"
+  alt="screenshot"
+  width={512}
+  height={358}
+  className="m-0"
+/>
 
 前提知識として、HTML要素は、コンテンツを開始タグと終了タグで囲む構造を持ちます。
 
 <Image src="/img/01-02-html-04.png" alt="screenshot" width={512} height={354} />
+
+開始タグは山括弧でタグ名を囲った構造(`<タグ名>`)、終了タグはスラッシュ+タグ名を山括弧で囲った構造(`</タグ名>`)を持ちます。
 
 要素には属性 (attribute) を設定し、要素に関する追加情報を含ませることができます。
 
@@ -150,16 +168,16 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 
 先ほどのコードの1行目を見てください。
 
+{/* prettier-ignore-start */}
 ```html
 <!DOCTYPE html>
 ```
+{/* prettier-ignore-end */}
 
 `<!DOCTYPE html>`は、この文書がHTML5という種類のHTMLドキュメントであることをブラウザに伝えるための宣言です。
 
 ```html
-<html lang="ja">
-
-</html>
+<html lang="ja"></html>
 ```
 
 `html`タグは、HTMLドキュメント全体を囲むタグです。`lang`属性に`ja`が設定されており、このページが日本語で書かれていることを示しています。
@@ -181,8 +199,20 @@ HTML （HyperText Markup Language、ハイパーテキスト・マークアッ�
 titleタグの中身を`<title>テスト</title>`のように書き換えて、保存した後にブラウザを再読み込みするとタブの文字が**テスト**に書き換わるか確認してみてください。
 
 <div className="grid grid-cols-2 gap-4">
-  <Image src="/img/01-02-html-06.png" alt="screenshot" width={512} height={358} className="m-0" />
-  <Image src="/img/01-02-html-07.png" alt="screenshot" width={512} height={358} className="m-0" />
+  <Image
+    src="/img/01-02-html-06.png"
+    alt="screenshot"
+    width={512}
+    height={358}
+    className="m-0"
+  />
+  <Image
+    src="/img/01-02-html-07.png"
+    alt="screenshot"
+    width={512}
+    height={358}
+    className="m-0"
+  />
 </div>
 
 ```html
@@ -219,7 +249,9 @@ hは**heading**の略で、見出しという意味です。
 
 ```html
 <p>pタグ : 段落を表す要素。paragraph。</p>
-<p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+<p>
+  pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。
+</p>
 ```
 
 <details>
@@ -235,6 +267,7 @@ hは**heading**の略で、見出しという意味です。
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
+
   <body>
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
@@ -273,6 +306,7 @@ pは**paragraph**の略で、テキストの段落を表示します。
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
+
   <body>
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
@@ -324,6 +358,7 @@ liは**list item**の略で、リスト内の項目を表示します。
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
+
   <body>
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
@@ -348,7 +383,9 @@ aは**anchor**の略で、別のウェブページ、ファイル、メールア
 ### imgタグ
 
 <img src="/sample/cup.png" alt="cup" className="m-0 w-56" />
-<a href="/sample/cup.png" download>cup.png</a>
+<a href="/sample/cup.png" download>
+  cup.png
+</a>
 
 上のリンクをクリックし、`cup.png`をダウンロードしてください。
 
@@ -373,6 +410,7 @@ aは**anchor**の略で、別のウェブページ、ファイル、メールア
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
+
   <body>
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
@@ -434,12 +472,48 @@ HTML要素には、**ブロックレ**ベルコンテンツと、**インライ�
 
 ```html
 <div>
-  <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+  <a
+    href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML"
+  >
     「mdn web docs - HTML 入門」
   </a>
 </div>
 <img src="./cup.png" alt="カップ" width="480" />
 ```
+
+<details>
+<summary>全体のコード</summary>
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        「mdn web docs - HTML 入門」
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+</details>
 
 <Image src="/img/01-02-html-09.png" alt="screenshot" width={512} height={358} />
 
@@ -451,8 +525,12 @@ divは**division**の略で、単純に要素をグループ化するタグで�
 
 HTMLには他にもたくさんのタグがあるので、以下のサイトで確認してみてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element">mdn web docs - HTML 要素リファレンス</a>
+<a href="https://developer.mozilla.org/ja/docs/Web/HTML/Element">
+  mdn web docs - HTML 要素リファレンス
+</a>
 
 また、より詳しくHTMLについて学びたい人は以下のページも参考にしてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Learn/HTML">mdn web docs - HTML の学習: ガイドとチュートリアル</a>
+<a href="https://developer.mozilla.org/ja/docs/Learn/HTML">
+  mdn web docs - HTML の学習: ガイドとチュートリアル
+</a>

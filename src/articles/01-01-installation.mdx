@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { Image } from "@/components/image"
-import { SyncTabMdx } from "@/components/tab"
+import { Image } from "@/components/image";
+import { SyncTabMdx } from "@/components/tab";
 
 export const metadata = {
   title: "開発環境の構築",
-  description: "Webページを作成するには、HTMLやCSS、JavaScriptなどのコードを記述する必要があり、この作業には専用のテキストエディターが不可欠ですこのチャプターではVisual Studio Codeをインストールし、開発を始める準備を整えます。"
+  description:
+    "Webページを作成するには、HTMLやCSS、JavaScriptなどのコードを記述する必要があり、この作業には専用のテキストエディターが不可欠ですこのチャプターではVisual Studio Codeをインストールし、開発を始める準備を整えます。",
 };
 
 Chapter 1 - 1
@@ -30,28 +31,80 @@ Visual Studio Code(以下VSCode)は多くの開発者に愛用されている専
 
 <SyncTabMdx>
   <div data-label="windows">
-    <Link href="https://go.microsoft.com/fwlink/?LinkID=534107" target="_blank" rel="noopener noreferrer">こちら</Link>からインストーラーをダウンロードします。
+    <Link
+      href="https://go.microsoft.com/fwlink/?LinkID=534107"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      こちら
+    </Link>
+    からインストーラーをダウンロードします。
     エクスプローラーでダウンロードフォルダを開きます。
-    ダウンロードされたインストーラー **VSCodeUserSetup-\*.exe** をダブルクリックして実行します。
-    <Image src="/img/01-01-windows-01.png" width={512} height={370} alt="screenshot" />
+    ダウンロードされたインストーラー **VSCodeUserSetup-\*.exe**
+    をダブルクリックして実行します。
+    <Image
+      src="/img/01-01-windows-01.png"
+      width={512}
+      height={370}
+      alt="screenshot"
+    />
     **同意する**を選択し、**次へ**をクリックします。
-    <Image src="/img/01-01-windows-02.png" width={512} height={386} alt="screenshot" />
+    <Image
+      src="/img/01-01-windows-02.png"
+      width={512}
+      height={386}
+      alt="screenshot"
+    />
     デフォルトのまま**次へ**をクリックし、続けて**インストール**をクリックします。
-    **Visual Studio Code セットアップウィザードの完了**の画面が出てきたら**完了**をクリックします。
-    <Image src="/img/01-01-windows-03.png" width={512} height={386} alt="screenshot" />
+    **Visual Studio Code
+    セットアップウィザードの完了**の画面が出てきたら**完了**をクリックします。
+    <Image
+      src="/img/01-01-windows-03.png"
+      width={512}
+      height={386}
+      alt="screenshot"
+    />
     以下のようなウィンドウが起動したら完了です。
-    <Image src="/img/01-01-windows-04.png" width={512} height={512} alt="screenshot" />
+    <Image
+      src="/img/01-01-windows-04.png"
+      width={512}
+      height={512}
+      alt="screenshot"
+    />
   </div>
   <div data-label="mac">
-    <Link href="https://go.microsoft.com/fwlink/?LinkID=534106" target="_blank" rel="noopener noreferrer">こちら</Link>からVSCodeをダウンロードします。
-    Finderでダウンロードフォルダを開きます。
-    ダウンロードされたzipファイルをダブルクリックして解凍すると、 **Visual Studio Code.app** が表示されます。
-    <Image src="/img/01-01-mac-01.png" width={512} height={265} alt="screenshot" />
-    Finderを別ウィンドウで開き、 `command` + `shift` + `a`でアプリケーションフォルダを開きます。
-    
-    **Visual Studio Code.app** をアプリケーションフォルダにドラッグ&ドロップします。
-    <Image src="/img/01-01-mac-02.png" width={512} height={367} alt="screenshot" />
-    **Visual Studio Code.app** をダブルクリックし、以下のようなウィンドウが起動したら完了です。
-    <Image src="/img/01-01-mac-03.png" width={512} height={367} alt="screenshot" />
+    <Link
+      href="https://go.microsoft.com/fwlink/?LinkID=534106"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      こちら
+    </Link>
+    からVSCodeをダウンロードします。 Finderでダウンロードフォルダを開きます。
+    ダウンロードされたzipファイルをダブルクリックして解凍すると、 **Visual
+    Studio Code.app** が表示されます。
+    <Image
+      src="/img/01-01-mac-01.png"
+      width={512}
+      height={265}
+      alt="screenshot"
+    />
+    Finderを別ウィンドウで開き、 `command` + `shift` +
+    `a`でアプリケーションフォルダを開きます。 **Visual Studio Code.app**
+    をアプリケーションフォルダにドラッグ&ドロップします。
+    <Image
+      src="/img/01-01-mac-02.png"
+      width={512}
+      height={367}
+      alt="screenshot"
+    />
+    **Visual Studio Code.app**
+    をダブルクリックし、以下のようなウィンドウが起動したら完了です。
+    <Image
+      src="/img/01-01-mac-03.png"
+      width={512}
+      height={367}
+      alt="screenshot"
+    />
   </div>
 </SyncTabMdx>

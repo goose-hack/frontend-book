@@ -1,4 +1,5 @@
-import { Image } from "@/components/image"
+import { Image } from "@/components/image";
+import { SyncTabMdx } from "@/components/tab/sync-tab-mdx";
 
 export const metadata = {
   title: "CSS",
@@ -8,8 +9,280 @@ Chapter 1 - 3
 
 # CSSで見た目を綺麗にする
 
-準備中
+## 目標
+
+画像のようなwebページを作成し、テキスト、リンク、リスト、画像など、基本的なHTMLの書き方を習得しましょう。
+
+<Image src="/img/01-02-html-01.png" alt="html logo" width={512} height={350} />
+
+## CSSとは
+
+CSS（Cascading Style Sheets）は、webページの見た目やレイアウトを装飾するためのスタイルシート言語です。
+
+以下のようなコードを書きます。
+
+```css
+p {
+  color: red;
+}
+```
+
+## CSSファイルを作ろう
+
+VSCodeの左上のメニューから、File → Open Folderを選択し、前回作成したwebフォルダを開いでください。
+
+VSCodeのファイル作成ボタンをクリックし、`style.css`ファイルを作成します。
+
+<Image src="/img/01-03-css-01.png" alt="screenshot" width={512} height={384} />
+
+## CSSを書いてみよう
+
+先ほど作成した`style.css`に、以下のコードを入力してください。
+
+```css
+/* pタグの文字色を赤にする */
+p {
+  color: red;
+}
+```
+
+`p`タグの文字色を赤に変更するコードですが、ブラウザを再読み込みしても反映されていないかと思います。
+
+これは、`index.html`側で`style.css`を読み込んでいないためです。
+
+以下のコードを`index.html`の`head`タグの中に追加しましょう。
+
+```html
+<link rel="stylesheet" href="./style.css" />
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```txt
+web/
+├── index.html
+├── style.css
+└── cup.png
+```
+
+`index.html`
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>
+      pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。
+    </p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a
+        href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML"
+      >
+        「mdn web docs - HTML 入門」
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+`style.css`
+
+```css
+/* pタグの文字色を赤にする */
+p {
+  color: red;
+}
+```
+
+</details>
+
+画像のように一部の文字が赤く表示されます。
+
+<Image src="/img/01-02-html-01.png" alt="html logo" width={512} height={350} />
+
+このコードが何をしているのが見てみましょう。
+
+<Image src="/img/01-03-css-02.png" alt="screenshot" width={512} height={320} />
+
+**セレクタ**は、スタイルを適用したいHTML要素を指定するものです。
+
+**プロパティ**は、スタイルを適用したい要素の具体的な装飾内容を指定するものです。フォント、色、サイズ、配置、余白など、様々なプロパティがあります。
+
+**値**は、プロパティに設定する具体的な内容を指定するものです。
+
+先ほどのコードは、HTML内のすべての`p`タグの文字色を赤にするという指定になります。
+
+```css
+/* pタグの文字色を赤にする */
+```
+
+また、CSSにもコメント機能があり、`/*`と`*/`で囲まれた部分は無効になります。
+
+### セレクタの書き方
+
+セレクタには色々な書き方がありますが、最初に覚えておくべきものは以下2つです。
+
+- 要素型セレクタ
+- クラスセレクタ
+
+#### 要素型セレクタ
+
+タグ名をセレクタとして指定し、HTML内のすべての対象タグにスタイルを適用します。
+
+```css
+/* すべてのpタグの文字色を赤にする */
+p {
+  color: red;
+}
+
+/* すべてのaタグの文字を太くする */
+a {
+  font-weight: bold;
+}
+```
+
+要素型セレクタだと、特定の`p`タグにだけスタイルを当てるということができません。
+
+そんな時はクラスセレクタを使用しましょう。
+
+#### クラスセレクタ
+
+HTMLのクラス属性を指定し、HTML内でそのクラス名がついているタグにスタイルを適用します。
+
+```html
+<!-- divタグのクラス属性に適当なクラス名を指定 -->
+<div class="container">
+  <h2>タイトル</h2>
+  <p>テキストテキストテキスト</p>
+</div>
+```
+
+```css
+/* containerというクラス名がついた要素の余白を指定 */
+.container {
+  padding: 16px;
+}
+```
+
+クラスセレクタは、ピリオド(`.`) + クラス名で指定します。
+
+早速HTMLにスタイルを当ててみましょう。
+
+`index.html`に以下のコードを追記してください。
+
+```html
+<div class="card">
+  <h2>見出し</h2>
+  <p>テキストテキストテキストテキストテキストテキスト</p>
+</div>
+```
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>
+      pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。
+    </p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a
+        href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML"
+      >
+        「mdn web docs - HTML 入門」
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+    <div class="card">
+      <h2>見出し</h2>
+      <p>テキストテキストテキストテキストテキストテキスト</p>
+    </div>
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+### background-color
+
+`style.css`に以下のコードを追記してください。
+
+```css
+.card {
+  background-color: cyan;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+p {
+  color: red;
+}
+
+.card {
+  background-color: cyan;
+}
+```
+
+</details>
 
 ## 参考サイト
 
+CSSには他にもたくさんのプロパティがあるので、以下のサイトで確認してみてください。
+
+<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference">
+  mdn web docs - CSS リファレンス
+</a>
+
+また、より詳しくCSSについて学びたい人は以下のページも参考にしてください。
+
 <a href="https://developer.mozilla.org/ja/docs/Learn/CSS">mdn web docs - CSS</a>
+```
