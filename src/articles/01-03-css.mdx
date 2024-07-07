@@ -11,9 +11,9 @@ Chapter 1 - 3
 
 ## 目標
 
-画像のようなwebページを作成し、テキスト、リンク、リスト、画像など、基本的なHTMLの書き方を習得しましょう。
+画像のようなwebページを作成し、文字の装飾、レイアウトの変更など、基本的なCSSの書き方を習得しましょう。
 
-<Image src="/img/01-02-html-01.png" alt="html logo" width={512} height={350} />
+<Image src="/img/01-03-css-00.png" alt="sample" width={512} height={350} />
 
 ## CSSとは
 
@@ -46,7 +46,7 @@ p {
 }
 ```
 
-`p`タグの文字色を赤に変更するコードですが、ブラウザを再読み込みしても反映されていないかと思います。
+`p`タグの文字色を赤に指定するコードですが、ブラウザを再読み込みしても反映されていないかと思います。
 
 これは、`index.html`側で`style.css`を読み込んでいないためです。
 
@@ -82,26 +82,18 @@ web/
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
-
   <body>
     <h1>Hello World</h1>
     <p>pタグ : 段落を表す要素。paragraph。</p>
-    <p>
-      pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。
-    </p>
+    <p>pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
     <ul>
       <li>ulタグ : 箇条書きリスト。unordered list</li>
       <li>olタグ : 順序付きリスト。ordered list</li>
       <li>liタグ : リスト内の項目。list item</li>
     </ul>
-    <div>
-      <a
-        href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML"
-      >
-        「mdn web docs - HTML 入門」
-      </a>
-    </div>
-    <img src="./cup.png" alt="カップ" width="480" />
+    <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+      HTML 入門 - ウェブ開発を学ぶ | MDN
+    </a>
   </body>
 </html>
 ```
@@ -121,7 +113,7 @@ p {
 
 画像のように一部の文字が赤く表示されます。
 
-<Image src="/img/01-02-html-01.png" alt="html logo" width={512} height={350} />
+<Image src="/img/01-03-css-03.png" alt="screenshot" width={512} height={320} />
 
 このコードが何をしているのが見てみましょう。
 
@@ -139,7 +131,7 @@ p {
 /* pタグの文字色を赤にする */
 ```
 
-また、CSSにもコメント機能があり、`/*`と`*/`で囲まれた部分は無効になります。
+また、CSSにもコメント機能があり、`/*`と`*/`で囲まれた部分は無視されます。
 
 ### セレクタの書き方
 
@@ -170,33 +162,361 @@ a {
 
 #### クラスセレクタ
 
-HTMLのクラス属性を指定し、HTML内でそのクラス名がついているタグにスタイルを適用します。
+HTML要素にクラス属性を指定し、HTML内でそのクラス名がついている要素にスタイルを適用します。
 
 ```html
-<!-- divタグのクラス属性に適当なクラス名を指定 -->
-<div class="container">
-  <h2>タイトル</h2>
-  <p>テキストテキストテキスト</p>
-</div>
+<!-- クラス属性に適当なクラス名を指定 -->
+<p class="box">pタグ : 段落を表す要素。paragraph。</p>
 ```
 
 ```css
-/* containerというクラス名がついた要素の余白を指定 */
-.container {
+/* boxというクラス名がついた要素の余白を指定 */
+.box {
   padding: 16px;
 }
 ```
 
 クラスセレクタは、ピリオド(`.`) + クラス名で指定します。
 
-早速HTMLにスタイルを当ててみましょう。
+### フォントを修飾するプロパティ
 
-`index.html`に以下のコードを追記してください。
+早速CSSを書いてHTMLにスタイルを当ててみます。
+
+まずはフォントの見た目を指定するプロパティを指定してみましょう。
+
+#### color
+
+先ほど`style.css`に書いたコードを見て下さい。
+
+```css
+p {
+  color: red;
+}
+```
+
+`color`は文字色を指定するプロパティです。
+
+値は、`red`や`blue`のような色名や、`#ff0000`のような16進数表記、`rgb(255, 0, 0)`のようなRGB表記、`hsl(30, 100%, 50%, 0.6)`のようなHSL表記などを指定できます。
+
+実務では16進数表記が使われることが多いので、これを覚えておくと良いでしょう。
+
+以下のように値を書き換えてみて下さい。
+
+```css
+p {
+  color: #ff0000; /* 文字色 */
+}
+```
+
+redを16進数表記で記述すると、`#ff0000`になります。
+
+10進数は0~9までの数字を使用するのに対し、16進数は0,1,...8,9,a,b,c,d,e,fと、アルファベットを含めて表現します。
+
+fは十進数で15、ffは十進数で255です。
+
+なので、`#ff00000`を分解すると、R(Red)が`ff`(255)、G(Green)が`00`(0)、B(Blue)が`00`(0)となり、文字が赤になっているというわけです。
+
+参考 : [\<hex-color\> - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/hex-color)
+
+#### font-famiry
+
+`style.css`の内容を以下のように書き換えてみて下さい。
+
+```css
+p {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+}
+```
+
+<div className="font-serif text-[#f00]">
+  pタグ : 段落を表す要素。paragraph。
+</div>
+
+pタグの文字が明朝体に変更されています。
+
+`font-family`は、文字のフォントを指定するプロパティです。
+
+値は、`serif`がセリフ体(日本語だと明朝体)、`sans-serif`がサンセリフ体(日本語だとゴシック体)になります。
+
+`serif`、`sans-serif`のみの指定だと、実際にどのセリフ体、あるいはサンセリフ体のフォントが表示されるかは、ブラウザ、OSによることになります。
+
+特定のフォントを指定したい場合は、
+
+- [webセーフフォント](https://developer.mozilla.org/ja/docs/Learn/CSS/Styling_text/Fundamentals#%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%83%95%E3%82%A1%E3%83%9F%E3%83%AA%E3%83%BC)を指定する
+- [フォントファイルを用意](https://developer.mozilla.org/ja/docs/Learn/CSS/Styling_text/Web_fonts#%E3%82%A6%E3%82%A7%E3%83%96%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88)してそれを指定する
+- [オンラインフォントサービス](https://developer.mozilla.org/ja/docs/Learn/CSS/Styling_text/Web_fonts#%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A9%E3%83%B3%E3%83%88%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E4%BD%BF%E7%94%A8)を利用する
+
+などを試してみましょう。
+
+#### font-size
+
+`style.css`の内容を以下のように書き換えてみて下さい。
+
+```css
+p {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+}
+```
+
+<div className="font-serif text-xl text-[#f00]">
+  pタグ : 段落を表す要素。paragraph。
+</div>
+
+pタグの文字が大きくなります。
+
+`font-size`は、文字サイズを指定するプロパティです。
+
+値は、`20px`のように、ピクセル単位の大きさを指定します。
+
+#### font-weight
+
+`style.css`の内容を以下のように書き換えてみて下さい。
+
+```css
+p {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+```
+
+<div className="font-serif text-xl font-bold text-[#f00]">
+  pタグ : 段落を表す要素。paragraph。
+</div>
+
+pタグの文字が太くなります。
+
+`font-wight`は、文字の太さを指定するプロパティです。
+
+値は基本的に100区切りで100 ~ 900まで指定できますが、実際に表示される太さは`font-family`によります。
+
+400が基本の太さ、700がboldです。
+
+### spanタグで文章の一部のみに変更
+
+もし、文章の中の一部のみにスタイルを当てたい場合、`span`タグを使用できます。
+
+以下のように、`index.html`の文章の一部を`<span class="highlight"></span>`で囲ってみて下さい。
+
+{/* prettier-ignore-start */}
 
 ```html
-<div class="card">
-  <h2>見出し</h2>
-  <p>テキストテキストテキストテキストテキストテキスト</p>
+<p>pタグ : 段落を表す要素。paragraph。</p>
+<p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+```
+
+{/* prettier-ignore-end */}
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p>pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+      HTML 入門 - ウェブ開発を学ぶ | MDN
+    </a>
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+そして、`style.css`のセレクタをクラスセレクタに変更します。
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+```
+
+{/* prettier-ignore-start */}
+
+<div>pタグで囲まれた<span className="text-[#f00] font-serif text-xl font-bold">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</div>
+
+{/* prettier-ignore-end */}
+
+`span`タグで囲まれた部分だけにスタイルが当たるようになりました。
+
+### レイアウトを変更するプロパティ
+
+`index.html`の一つ目の`p`タグのclass属性に`box`を指定して下さい。
+
+```html
+<p class="box">pタグ : 段落を表す要素。paragraph。</p>
+```
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p class="box">pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        HTML 入門 - ウェブ開発を学ぶ | MDN
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+`style.css`に以下のコードを記述してください。
+
+```css
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+```
+
+</details>
+
+変更を保存してブラウザを再読み込みすると、画像のような表示になります。
+
+<Image src="/img/01-03-css-04.png" alt="screenshot" width={512} height={320} />
+
+指定したプロパティを見てみましょう。
+
+### background-color
+
+`background-color`は要素の背景色を指定するプロパティで、レイアウトの変更ではないですが、余白を説明する上で都合がいいのでここで登場させます。
+
+値は`color`と同じで16進数表記の`#dddddd`などを指定できます。
+
+### width, height, padding, margin, border
+
+<Image src="/img/01-03-css-05.png" alt="screenshot" width={512} height={320} />
+
+- `width`はコンテンツの幅
+- `height`はコンテンツの高さ
+- `padding`は内側余白
+- `margin`は外側余白
+- `border`は枠線のスタイル
+
+を指定するプロパティです。
+
+`padding`は、`border`より内側で、`background-color`で背景色が付く範囲の余白。
+
+`margin`は、`border`より外側の余白を指定できます。
+
+`border`は、枠線のスタイルを指定できます。ここでは詳しく説明しませんが、値に色、太さ、線の種類の3つを指定しています。
+
+参考 : [ボックスモデル - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/The_box_model)
+
+それぞれの値を変更したらブラウザの表示がどのように変わるか試してみて下さい。
+
+### display
+
+`display`は、HTML要素の表示方法を制御するためのプロパティです。具体的には、以下の項目を決定することができます。
+
+- 要素の種類: ブロックレベル要素なのか、インラインレベル要素なのかを指定します。
+- 表示/非表示: 要素を表示するか非表示にするかを指定します。
+- 配置: 要素をどのように配置するかを指定します。(例：横並び、縦並び、グリッドレイアウトなど)
+
+代表的な値は
+
+- `block`: 要素をブロックレベル要素として表示します。
+- `inline`: 要素をインラインレベル要素として表示します。
+- `none`: 要素を非表示にします。
+- `flex`: 要素をフレックスコンテナとして表示します。フレックスコンテナは、要素を柔軟にレイアウトするためのレイアウトモードです。
+- `grid`: 要素をグリッドコンテナとして表示します。グリッドコンテナは、要素をグリッドレイアウトするためのレイアウトモードです。
+
+#### display: flex
+
+`display: flex`は、要素を横並びにしたり、中央揃えにしたり、Webページのレイアウトを柔軟に作成するための指定です。
+
+`index.html`の2つの`p`タグの下に以下のように記述して下さい。
+
+```html
+<div class="flex-container">
+  <div class="flex-item">item A</div>
+  <div class="flex-item">item B</div>
+  <div class="flex-item">item C</div>
+  <div class="flex-item">item D</div>
+  <div class="flex-item">item E</div>
+  <div class="flex-item">item F</div>
 </div>
 ```
 
@@ -217,30 +537,29 @@ HTMLのクラス属性を指定し、HTML内でそのクラス名がついてい
   </head>
 
   <!-- body : webページに表示するコンテンツ -->
-
   <body>
     <h1>Hello World</h1>
-    <p>pタグ : 段落を表す要素。paragraph。</p>
-    <p>
-      pタグで囲まれたテキストは、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。
-    </p>
+    <p class="box">pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <div class="flex-container">
+      <div class="flex-item">item A</div>
+      <div class="flex-item">item B</div>
+      <div class="flex-item">item C</div>
+      <div class="flex-item">item D</div>
+      <div class="flex-item">item E</div>
+      <div class="flex-item">item F</div>
+    </div>
     <ul>
       <li>ulタグ : 箇条書きリスト。unordered list</li>
       <li>olタグ : 順序付きリスト。ordered list</li>
       <li>liタグ : リスト内の項目。list item</li>
     </ul>
     <div>
-      <a
-        href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML"
-      >
-        「mdn web docs - HTML 入門」
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        HTML 入門 - ウェブ開発を学ぶ | MDN
       </a>
     </div>
     <img src="./cup.png" alt="カップ" width="480" />
-    <div class="card">
-      <h2>見出し</h2>
-      <p>テキストテキストテキストテキストテキストテキスト</p>
-    </div>
   </body>
 </html>
 ```
@@ -249,13 +568,19 @@ HTMLのクラス属性を指定し、HTML内でそのクラス名がついてい
 
 </details>
 
-### background-color
-
-`style.css`に以下のコードを追記してください。
+`style.css`に以下のように記述して下さい。
 
 ```css
-.card {
-  background-color: cyan;
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
 }
 ```
 
@@ -263,26 +588,929 @@ HTMLのクラス属性を指定し、HTML内でそのクラス名がついてい
 <summary>全体のコード</summary>
 
 ```css
-p {
-  color: red;
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
 }
 
-.card {
-  background-color: cyan;
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
 }
 ```
 
 </details>
 
+以下のように要素が横並びで表示されます。
+
+<div className="flex flex-wrap gap-4 p-5">
+  <div className="bg-neutral-300 px-5 py-2">item A</div>
+  <div className="bg-neutral-300 px-5 py-2">item B</div>
+  <div className="bg-neutral-300 px-5 py-2">item C</div>
+  <div className="bg-neutral-300 px-5 py-2">item D</div>
+  <div className="bg-neutral-300 px-5 py-2">item E</div>
+  <div className="bg-neutral-300 px-5 py-2">item F</div>
+</div>
+
+ここでは`flex`の詳しい使い方は説明しませんが、以下のサイトに詳しい使い方が載っているので、参考にして下さい。
+
+参考 : [フレックスボックス - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Flexbox)
+
+#### display: grid
+
+`display: grid`は、格子状のレイアウトを作成し、それに合わせて子要素を配置するための指定です。
+
+`index.html`の`flex-container`の下に以下のように記述して下さい。
+
+```html
+<div class="grid-container">
+  <div class="grid-item grid-item-header">item A</div>
+  <div class="grid-item">item B</div>
+  <div class="grid-item">item C</div>
+  <div class="grid-item">item D</div>
+  <div class="grid-item">item E</div>
+</div>
+```
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!doctype html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p class="box">pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <div class="flex-container">
+      <div class="flex-item">item A</div>
+      <div class="flex-item">item B</div>
+      <div class="flex-item">item C</div>
+      <div class="flex-item">item D</div>
+      <div class="flex-item">item E</div>
+      <div class="flex-item">item F</div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item grid-item-header">item A</div>
+      <div class="grid-item">item B</div>
+      <div class="grid-item">item C</div>
+      <div class="grid-item">item D</div>
+      <div class="grid-item">item E</div>
+    </div>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        HTML 入門 - ウェブ開発を学ぶ | MDN
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+`style.css`に以下のように記述して下さい。
+
+```css
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+以下のように格子状に要素が表示されます。
+
+<div className="grid grid-cols-2 grid-rows-[144px_144px_144px] gap-4">
+  <div className="col-span-2 bg-neutral-300 p-5">item A</div>
+  <div className="bg-neutral-300 p-5">item B</div>
+  <div className="bg-neutral-300 p-5">item C</div>
+  <div className="bg-neutral-300 p-5">item D</div>
+  <div className="bg-neutral-300 p-5">item E</div>
+</div>
+
+ここではgridの詳しい使い方は説明しませんが、以下のサイトに詳しい使い方が載っているので、参考にして下さい。
+
+参考 : [グリッド - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Grids)
+
+### position
+
+`position`は、HTML要素がどのように配置されるかを設定するためのプロパティです。
+
+#### position: relative
+
+`position: relative`は、要素の元々の位置から指定した距離移動させるための指定です。
+
+`index.html`を書き換えて、`flex-container`の`item B`に`flex-item-b`クラスを追加して下さい。
+
+```html
+<div class="flex-container">
+  <div class="flex-item">item A</div>
+  <div class="flex-item flex-item-b">item B</div>
+  <div class="flex-item">item C</div>
+  <div class="flex-item">item D</div>
+  <div class="flex-item">item E</div>
+  <div class="flex-item">item F</div>
+</div>
+```
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p class="box">pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <div class="flex-container">
+      <div class="flex-item">item A</div>
+      <div class="flex-item flex-item-b">item B</div>
+      <div class="flex-item">item C</div>
+      <div class="flex-item">item D</div>
+      <div class="flex-item">item E</div>
+      <div class="flex-item">item F</div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item grid-item-header">item A</div>
+      <div class="grid-item">item B</div>
+      <div class="grid-item">item C</div>
+      <div class="grid-item">item D</div>
+      <div class="grid-item">item E</div>
+    </div>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        HTML 入門 - ウェブ開発を学ぶ | MDN
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+`style.css`で`flex-item-b`に対して以下のように指定して下さい。
+
+```css
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+以下のように、`item B`が上端から12px、左端から12px移動します。
+
+<div className="flex flex-wrap gap-4">
+  <div className="bg-neutral-300 px-5 py-2">item A</div>
+  <div className="relative left-3 top-3 bg-neutral-300 px-5 py-2">item B</div>
+  <div className="bg-neutral-300 px-5 py-2">item C</div>
+  <div className="bg-neutral-300 px-5 py-2">item D</div>
+  <div className="bg-neutral-300 px-5 py-2">item E</div>
+  <div className="bg-neutral-300 px-5 py-2">item F</div>
+</div>
+
+#### position: absolute
+
+`position: absolute`は、親要素上での絶対位置に移動させるための指定です。
+
+`position`プロパティに、`static`以外の値が指定されている親要素の領域が基準位置となり、`static`以外の親要素がない場合は初期のウィンドウ領域が基準位置となります。
+
+`index.html`を書き換えて、`flex-container`の`item C`に`flex-item-c`クラスを追加して下さい。
+
+```html
+<div class="flex-container">
+  <div class="flex-item">item A</div>
+  <div class="flex-item flex-item-b">item B</div>
+  <div class="flex-item flex-item-c">item C</div>
+  <div class="flex-item">item D</div>
+  <div class="flex-item">item E</div>
+  <div class="flex-item">item F</div>
+</div>
+```
+
+<details>
+<summary>全体のコード</summary>
+
+{/* prettier-ignore-start */}
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <h1>Hello World</h1>
+    <p class="box">pタグ : 段落を表す要素。paragraph。</p>
+    <p>pタグで囲まれた<span class="highlight">テキスト</span>は、ブラウザ上では通常、1行分の改行が挿入され、段落として表示されます。</p>
+    <div class="flex-container">
+      <div class="flex-item">item A</div>
+      <div class="flex-item flex-item-b">item B</div>
+      <div class="flex-item">item C</div>
+      <div class="flex-item">item D</div>
+      <div class="flex-item">item E</div>
+      <div class="flex-item">item F</div>
+    </div>
+    <div class="grid-container">
+      <div class="grid-item grid-item-header">item A</div>
+      <div class="grid-item">item B</div>
+      <div class="grid-item">item C</div>
+      <div class="grid-item">item D</div>
+      <div class="grid-item">item E</div>
+    </div>
+    <ul>
+      <li>ulタグ : 箇条書きリスト。unordered list</li>
+      <li>olタグ : 順序付きリスト。ordered list</li>
+      <li>liタグ : リスト内の項目。list item</li>
+    </ul>
+    <div>
+      <a href="https://developer.mozilla.org/ja/docs/Learn/HTML/Introduction_to_HTML">
+        HTML 入門 - ウェブ開発を学ぶ | MDN
+      </a>
+    </div>
+    <img src="./cup.png" alt="カップ" width="480" />
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+</details>
+
+`style.css`で、`flex-item-c`に対して以下のように指定して下さい。
+
+```css
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+画像のように、`item C`がウィンドウの下端から0px、右端から0pxに移動します。
+
+これが、親要素に`position`プロパティが設定されていない場合の挙動です。
+
+<Image src="/img/01-03-css-06.png" alt="screenshot" width={512} height={740} />
+
+次に、親要素である`flex-container`に`position`プロパティを追加してみましょう。
+
+```css
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+以下のように、`item C`が`flex-container`の下端から0px、右端から0pxに移動します。
+
+{/* prettier-ignore-start */}
+
+<div className="relative flex flex-wrap gap-4">
+  <div className="bg-neutral-300 px-5 py-2">item A</div>
+  <div className="relative left-3 top-3 bg-neutral-300 px-5 py-2">item B</div>
+  <div className="absolute bottom-0 right-0 bg-neutral-300 px-5 py-2">item C</div>
+  <div className="bg-neutral-300 px-5 py-2">item D</div>
+  <div className="bg-neutral-300 px-5 py-2">item E</div>
+  <div className="bg-neutral-300 px-5 py-2">item F</div>
+</div>
+
+{/* prettier-ignore-end */}
+
+#### position: fixed
+
+`position: fixed`は、ウィンドウに対して位置を固定する指定です。
+
+`style.css`で、`h1`に対して以下のように指定して下さい。
+
+```css
+h1 {
+  position: fixed;
+  top: 0;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+h1 {
+  position: fixed;
+  top: 0;
+}
+
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+`Hello World`の文字がウィンドウの上端に固定されます。
+
+<Image src="/img/01-03-css-07.gif" alt="screenshot" width={512} height={360} />
+
+#### position: sticky
+
+`position: fixed`は、要素をスクロールしても画面内に固定表示させるための指定です。
+
+`style.css`で、`h1`の`position`プロパティを`sticky`に変更して下さい。
+
+```css
+h1 {
+  position: sticky;
+  top: 0;
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+h1 {
+  position: sticky;
+  top: 0;
+}
+
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+```
+
+</details>
+
+`fixed`は最初からウィンドウに対して固定されるのに対し、`sticky`はスクロールされて固定位置に達したら固定されています。
+
+<Image src="/img/01-03-css-08.gif" alt="screenshot" width={512} height={360} />
+
+### レスポンシブ対応
+
+デスクトップとモバイル端末の両方でwebページが適切に表示されるために、ブラウザのウィンドウサイズによってCSSを切り替える必要があります。
+
+`style.css`に以下のコードを記述して下さい。
+
+```css
+/* ウィンドウ幅が640px以上の時のスタイル */
+@media screen and (min-width: 640px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+```
+
+<details>
+<summary>全体のコード</summary>
+
+```css
+h1 {
+  position: sticky;
+  top: 0;
+}
+
+.highlight {
+  color: #ff0000; /* 文字色 */
+  font-family: serif; /* フォント */
+  font-size: 20px; /* 文字サイズ */
+  font-weight: 700; /* 文字の太さ */
+}
+
+.box {
+  background-color: #dddddd; /* 背景色 */
+
+  width: 384px; /* 幅 */
+  height: 24px; /* 高さ */
+  padding: 16px; /* 内側余白 */
+  margin: 16px; /* 外側余白 */
+  border: #000000 2px solid; /* 枠線 */
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+}
+
+.flex-item {
+  background-color: #dddddd;
+  padding: 8px 20px;
+}
+
+.flex-item-b {
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.flex-item-c {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.grid-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 144px 144px 144px;
+  padding: 20px;
+}
+
+.grid-item {
+  background-color: #dddddd;
+  padding: 20px;
+}
+
+.grid-item-header {
+  grid-column: 1 / 3;
+}
+
+/* ウィンドウ幅が640px以上の時のスタイル */
+@media screen and (min-width: 640px) {
+  h1 {
+    font-size: 48px;
+  }
+}
+```
+
+</details>
+
+ウィンドウサイズが640px以上だと、`Hello World`のフォントサイズが大きくなります。
+
+<Image src="/img/01-03-css-09.gif" alt="screenshot" width={512} height={360} />
+
 ## 参考サイト
 
 CSSには他にもたくさんのプロパティがあるので、以下のサイトで確認してみてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Web/CSS/Reference">
-  mdn web docs - CSS リファレンス
-</a>
+[CSS リファレンス - CSS: カスケーディングスタイルシート | MDN](https://developer.mozilla.org/ja/docs/Web/CSS/Reference)
+
+[CSS の値と単位 - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS/Building_blocks/Values_and_units#%E9%95%B7%E3%81%95)
 
 また、より詳しくCSSについて学びたい人は以下のページも参考にしてください。
 
-<a href="https://developer.mozilla.org/ja/docs/Learn/CSS">mdn web docs - CSS</a>
-```
+[CSS - ウェブ開発を学ぶ | MDN](https://developer.mozilla.org/ja/docs/Learn/CSS)
+
+## 演習1
+
+以上で実務でよく使用するHTML、CSSの書き方を習得しました。
+
+演習として、画像のようなwebページを作ってみましょう。
+
+<Image src="/img/01-03-css-10.png" alt="screenshot" width={512} height={802} />
+
+画像は以下3つをダウンロードして下さい。
+
+{/* prettier-ignore-start */}
+
+<div className="grid grid-cols-3 gap-2">
+  <div>
+    <img src="/sample/cup.png" alt="cup" className="m-0" />
+    <a href="/sample/cup.png" download>cup.png</a>
+  </div>
+  <div>
+    <img src="/sample/beans.png" alt="beans" className="m-0" />
+    <a href="/sample/beans.png" download>beans.png</a>
+  </div>
+  <div>
+    <img src="/sample/interior.png" alt="interior" className="m-0" />
+    <a href="/sample/interior.png" download>interior.png</a>
+  </div>
+</div>
+
+{/* prettier-ignore-end */}
+
+「Frontend Book」のリンク先は`https://frontend-book.goosehack.com`を指定して下さい。
+
+## 演習2
+
+自分で0からwebページを作ってみて下さい。
+
+素材の画像などは以下のようなサイトでダウンロードできます。
+
+[pixabay](https://pixabay.com/ja/)

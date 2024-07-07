@@ -1,46 +1,41 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <!-- head : webページに表示しないコンテンツ -->
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="./style.css" />
-    <title>Hoge Coffee</title>
+    <title>Title</title>
   </head>
 
+  <!-- body : webページに表示するコンテンツ -->
   <body>
-    <div class="top-page">
-      <h1>Hoge Coffee</h1>
+    <div class="top">
+      <img src="./cup.png" alt="cup" class="top-img" />
+      <h1>Hello World Cafe</h1>
     </div>
-    <main>
-      <p class="about">
-        This page is the sample of
-        <a href="https://frontend-book.kanaru.jp">Frontend Book</a>
-      </p>
-      <div>
-        <div class="contents-box">
-          <img
-            class="content"
-            src="./coffee-beans.png"
-            alt="Specialty Coffee Beans"
-          />
-          <div class="content">
-            <h2>Specialty Coffee Beans</h2>
-            <p>Naniyara sugoi kodawarino mame</p>
-          </div>
-        </div>
-        <div class="contents-box">
-          <div class="content">
-            <h2>Great Cafe Interior</h2>
-            <p>Dokoka no kuni no youna naisou</p>
-          </div>
-          <img
-            class="content"
-            src="./cafe-interior.png"
-            alt="Great Cafe Interior"
-          />
-        </div>
+    <p class="description">
+      This web page is a sample created in
+      <a href="https://frontend-book.goosehack.com">Frontend Book</a>.
+    </p>
+    <div class="grid-container">
+      <img class="grid-item" src="./beans.png" alt="beans" />
+      <div class="grid-item grid-item-text">
+        <h2>Specialty Coffee Beans</h2>
+        <p>
+          Indulge in the rich flavors of specialty coffee beans, a treat for
+          coffee connoisseurs.
+        </p>
       </div>
-    </main>
-    <footer>&copy; 2024 Frontend Book</footer>
+      <div class="grid-item grid-item-text">
+        <h2>Great Interior</h2>
+        <p>
+          Step into a haven of cozy ambiance and delectable coffee, where every
+          detail is crafted for your delight.
+        </p>
+      </div>
+      <img class="grid-item" src="./interior.png" alt="interior" />
+    </div>
+    <div class="footer">&copy; 2024 Frontend Book</div>
   </body>
 </html>
