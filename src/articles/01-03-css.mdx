@@ -37,7 +37,7 @@ VSCodeのファイル作成ボタンをクリックし、`style.css`ファイル
 
 ## CSSを書いてみよう
 
-先ほど作成した`style.css`に、以下のコードを入力してください。
+先ほど作成した`style.css`に、以下のコードを記述してください。
 
 ```css
 /* pタグの文字色を赤にする */
@@ -1484,6 +1484,8 @@ CSSには他にもたくさんのプロパティがあるので、以下のサ�
 
 <Image src="/img/01-03-css-10.png" alt="screenshot" width={512} height={802} />
 
+今まで使用してきた`web`フォルダとは別に、`exercises-1`フォルダを作成し、その中にhtml,css,pngファイルを配置して下さい。
+
 画像は以下3つをダウンロードして下さい。
 
 {/* prettier-ignore-start */}
@@ -1507,9 +1509,152 @@ CSSには他にもたくさんのプロパティがあるので、以下のサ�
 
 「Frontend Book」のリンク先は`https://frontend-book.goosehack.com`を指定して下さい。
 
+完璧に再現する必要はないので、ある程度できたら以下の実装例と比較してみて下さい。
+
+<details>
+<summary>実装例</summary>
+
+{/* prettier-ignore-start */}
+
+<a
+  href="https://frontend-book.goosehack.com/sample/"
+  target="_blank"
+  rel="noopener noreferrer"
+>デモページ</a>
+
+```txt
+exercises-1/
+├── index.html
+├── style.css
+├── cup.png
+├── beans.png
+└── interior.png
+```
+
+`index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head : webページに表示しないコンテンツ -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Title</title>
+  </head>
+
+  <!-- body : webページに表示するコンテンツ -->
+  <body>
+    <div class="top">
+      <img src="./cup.png" alt="cup" class="top-img" />
+      <h1>Hello World Cafe</h1>
+    </div>
+    <p class="description">
+      This web page is a sample created in
+      <a href="https://frontend-book.goosehack.com">Frontend Book</a>.
+    </p>
+    <div class="grid-container">
+      <img class="grid-item" src="./beans.png" alt="beans" />
+      <div class="grid-item grid-item-text">
+        <h2>Specialty Coffee Beans</h2>
+        <p>
+          Indulge in the rich flavors of specialty coffee beans, a treat for
+          coffee connoisseurs.
+        </p>
+      </div>
+      <div class="grid-item grid-item-text">
+        <h2>Great Interior</h2>
+        <p>
+          Step into a haven of cozy ambiance and delectable coffee, where every
+          detail is crafted for your delight.
+        </p>
+      </div>
+      <img class="grid-item" src="./interior.png" alt="interior" />
+    </div>
+    <div class="footer">&copy; 2024 Frontend Book</div>
+  </body>
+</html>
+```
+
+{/* prettier-ignore-end */}
+
+`style.css`
+
+```css
+body {
+  margin: 0;
+  color: #cfc9c9;
+  background-color: #272d31;
+  text-align: center;
+}
+
+h1 {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  font-size: 18px;
+}
+
+a {
+  color: #85a3b7;
+}
+
+img {
+  object-fit: cover;
+}
+
+.top {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+}
+
+.top-img {
+  width: 100%;
+  height: 100%;
+}
+
+.description {
+  margin: 80px 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 256px 256px;
+  max-width: 672px;
+  margin: 64px auto;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.grid-item-text {
+  padding: 32px 16px;
+}
+
+.footer {
+  background-color: #162025;
+  padding: 48px 0;
+  font-size: 12px;
+}
+```
+
+</details>
+
 ## 演習2
 
 自分で0からwebページを作ってみて下さい。
+
+今まで使用してきた`web`フォルダとは別に、`exercises-2`フォルダを作成し、その中にhtml,css,pngファイルを配置して下さい。
 
 素材の画像などは以下のようなサイトでダウンロードできます。
 
